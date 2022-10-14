@@ -1,14 +1,24 @@
 import React from 'react';
-import { widthBookstoreService } from '../hoc';
+import { Route, Router } from 'react-router-dom';
+import { HomePage, CardPage } from '../pages';
 
 import './app.css';
 
-const App = ({ bookstoreService }) => {
-  console.log('✅', bookstoreService.getBooks());
-
+const App = () => {
   return (
-    <div className="App">App</div>
+    <Router>
+      <Route
+        path='/'
+        component={HomePage}
+        exact
+      />
+      <Route
+        path='/cart'
+        component={CardPage}
+        exact
+      />
+    </Router>
   )
 }
 
-export default widthBookstoreService()(App);
+export default App;
