@@ -1,10 +1,14 @@
-import React from "react";
+import React from 'react';
+import { widthBookstoreService } from '../hoc';
+
 import './app.css';
 
-const App = () => {
+const App = ({ bookstoreService }) => {
+  console.log('✅', bookstoreService.getBooks());
+
   return (
     <div className="App">App</div>
   )
 }
 
-export default App;
+export default widthBookstoreService()(App);
